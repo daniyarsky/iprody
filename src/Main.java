@@ -60,22 +60,61 @@ public class Main {
         return array;
     }
 
-    public static void main(String[] args) {
-        int[] source1 = {1, 2, 3, 4};
-        int[] target1 = {};
-        System.out.println(Arrays.toString(arrayCopy(source1, target1)));
-
-        int[] source2 = {1, 2, 3, 4};
-        int[] target2 = {5, 6, 7};
-        System.out.println(Arrays.toString(arrayCopy(source2, target2)));
-
-        int[] array = new int[9];
-        Random random = new Random();
-        for (int i = 0; i < array.length; i++) {
-            array[i] = random.nextInt(10);
+    public static int findSymbolOccurance(String text, char symbol) {
+        if (text == null || text.isEmpty()) {
+            return 0;
         }
 
-        System.out.println(Arrays.toString(array));
-        System.out.println(Arrays.toString(cocktailSort(array)));
+        int count = 0;
+        for (char c : text.toCharArray()) {
+            if (c == symbol) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public static int findWordPosition(String source, String target) {
+        if (source == null || target == null || target.isEmpty()) {
+            return -1;
+        }
+
+        return source.indexOf(target);
+    }
+
+    public static String stringReverse(String text) {
+        if (text == null) {
+            return null;
+        }
+
+        StringBuilder reversed = new StringBuilder(text);
+        return reversed.reverse().toString();
+    }
+
+    public static boolean isPalindrome(String text) {
+        if (text == null) {
+            return false;
+        }
+
+        String reversed = new StringBuilder(text).reverse().toString();
+        return text.equalsIgnoreCase(reversed);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(findSymbolOccurance("test", 't'));
+
+        String source1 = "Apollo";
+        String target1 = "pollo";
+        System.out.println(findWordPosition(source1, target1));
+
+        String source2 = "Apple";
+        String target2 = "plant";
+        System.out.println(findWordPosition(source2, target2));
+
+        String text = "Hello";
+        System.out.println(stringReverse(text));
+
+        System.out.println(isPalindrome("ERe"));
+        System.out.println(isPalindrome("Allo"));
     }
 }
