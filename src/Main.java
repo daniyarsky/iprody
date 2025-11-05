@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.Random;
+import model.Employee;
 
 public class Main {
 
@@ -61,21 +62,18 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        int[] source1 = {1, 2, 3, 4};
-        int[] target1 = {};
-        System.out.println(Arrays.toString(arrayCopy(source1, target1)));
+        Employee[] employees = new Employee[5];
 
-        int[] source2 = {1, 2, 3, 4};
-        int[] target2 = {5, 6, 7};
-        System.out.println(Arrays.toString(arrayCopy(source2, target2)));
+        employees[0] = new Employee("Тестов Тест Тестович", "Инженер", "test@mail.com", "+123456789", 250000, 35);
+        employees[1] = new Employee("Иванов Иван Иванович", "Менеджер", "ivanov@mail.com", "+123456789", 300000, 42);
+        employees[2] = new Employee("Сидоров Сидор Сидорович", "Разработчик", "sidorov@mail.com", "+123456789", 400000, 45);
+        employees[3] = new Employee("Лол Кек Рофл", "Бухгалтер", "rofl@mail.com", "+123456789", 280000, 38);
+        employees[4] = new Employee("Доу Джон Дефолтович", "Тимлид", "defolt@mail.com", "+123456789", 500000, 50);
 
-        int[] array = new int[9];
-        Random random = new Random();
-        for (int i = 0; i < array.length; i++) {
-            array[i] = random.nextInt(10);
+        for (Employee emp : employees) {
+            if (emp.getAge() > 40) {
+                emp.printInfo();
+            }
         }
-
-        System.out.println(Arrays.toString(array));
-        System.out.println(Arrays.toString(cocktailSort(array)));
     }
 }
