@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.Random;
+import model.Employee;
 
 public class Main {
 
@@ -60,61 +61,19 @@ public class Main {
         return array;
     }
 
-    public static int findSymbolOccurance(String text, char symbol) {
-        if (text == null || text.isEmpty()) {
-            return 0;
-        }
+    public static void main(String[] args) {
+        Employee[] employees = new Employee[5];
 
-        int count = 0;
-        for (char c : text.toCharArray()) {
-            if (c == symbol) {
-                count++;
+        employees[0] = new Employee("Тестов Тест Тестович", "Инженер", "test@mail.com", "+123456789", 250000, 35);
+        employees[1] = new Employee("Иванов Иван Иванович", "Менеджер", "ivanov@mail.com", "+123456789", 300000, 42);
+        employees[2] = new Employee("Сидоров Сидор Сидорович", "Разработчик", "sidorov@mail.com", "+123456789", 400000, 45);
+        employees[3] = new Employee("Лол Кек Рофл", "Бухгалтер", "rofl@mail.com", "+123456789", 280000, 38);
+        employees[4] = new Employee("Доу Джон Дефолтович", "Тимлид", "defolt@mail.com", "+123456789", 500000, 50);
+
+        for (Employee emp : employees) {
+            if (emp.getAge() > 40) {
+                emp.printInfo();
             }
         }
-        return count;
-    }
-
-    public static int findWordPosition(String source, String target) {
-        if (source == null || target == null || target.isEmpty()) {
-            return -1;
-        }
-
-        return source.indexOf(target);
-    }
-
-    public static String stringReverse(String text) {
-        if (text == null) {
-            return null;
-        }
-
-        StringBuilder reversed = new StringBuilder(text);
-        return reversed.reverse().toString();
-    }
-
-    public static boolean isPalindrome(String text) {
-        if (text == null) {
-            return false;
-        }
-
-        String reversed = new StringBuilder(text).reverse().toString();
-        return text.equalsIgnoreCase(reversed);
-    }
-
-    public static void main(String[] args) {
-        System.out.println(findSymbolOccurance("test", 't'));
-
-        String source1 = "Apollo";
-        String target1 = "pollo";
-        System.out.println(findWordPosition(source1, target1));
-
-        String source2 = "Apple";
-        String target2 = "plant";
-        System.out.println(findWordPosition(source2, target2));
-
-        String text = "Hello";
-        System.out.println(stringReverse(text));
-
-        System.out.println(isPalindrome("ERe"));
-        System.out.println(isPalindrome("Allo"));
     }
 }
